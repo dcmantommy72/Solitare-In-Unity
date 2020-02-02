@@ -1,0 +1,15 @@
+.mainbottombutton {
+}
+
+.bottom-mainbutton {
+}
+
+.bottom-settingsbutton {
+    left: 0;
+    align-items: flex-start;
+    position: absolute;
+    top: 0;
+    right: 322px;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0);
+}

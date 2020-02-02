@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement name="GameBottomArea" style="-unity-background-image-tint-color: rgb(241, 236, 12); background-color: rgba(0, 0, 0, 0.34); margin-top: auto; top: auto; margin-bottom: 0; height: 53px; width: 520px; align-items: center; justify-content: center;">
+        <Style path="Assets/UI/0_GameUI.uss" />
+        <ui:VisualElement style="justify-content: flex-start; min-width: auto; left: auto; top: auto; height: 50px; width: 415px; align-items: auto; overflow: visible;">
+            <ui:Button text="Settings" name="Settings-Button" class="bottom-mainbutton bottom-settingsbutton" />
+            <ui:Button text="Button" class="bottom-settingsbutton" style="align-items: flex-start; position: absolute; left: 112px; top: 0; right: 214px; bottom: 0;" />
+            <ui:Button text="Button" style="position: absolute; left: 212px; top: 0; right: 91px; bottom: 0;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

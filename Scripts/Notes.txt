@@ -1,0 +1,307 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class DragAndDrop : MonoBehaviour
+{
+
+    private float startPosX;
+    private float startPosY;
+    private bool isBeingHeld = false;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (isBeingHeld == true)
+        {
+
+            Vector3 mousePos;
+            mousePos = Input.mousePosition;
+            mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+
+            this.gameObject.transform.localPosition = new Vector3(mousePos.x - startPosX, mousePos.y - startPosY, 0);
+
+
+        }
+    }
+
+
+    private void onMouseDown()
+    {
+
+        if (Input.GetMouseButtonDown(1))
+        {
+
+        
+            Vector3 mousePos;
+            mousePos = Input.mousePosition;
+            mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+
+            startPosX = mousePos.x - transform.localPosition.x;
+            startPosY = mousePos.y - transform.localPosition.y;
+
+
+            isBeingHeld = true;
+        }
+    }
+
+    private void onMouseUp()
+    {
+        isBeingHeld = false;
+    }
+
+
+
+
+}
+
+
+
+if (!OnDrop(PointerEventData eventData))
+
+if (!isDropped) 
+{
+    //go back to OG pos
+}
+
+PointerEventData.pointerCurrentRaycast.gameObject
+
+
+
+if hovering over (certain things)
+    highlight green
+
+
+
+
+UPDATE SCORE
+Scoring.scoreValue += 5;
+
+
+if (!s1.top && !s1.inDeckPile)
+{
+    //Card is bottom to bottom
+}
+
+
+if (s1.top)
+{
+    //Card is going Top to Bottom -15 Points
+    Scoring.scoreValue -= 15; 
+}
+else if (s1.inDeckPile)
+{
+    //Card is going from deck to bottom +5 Points
+    Scoring.scoreValue += 5; //ADD 5 POINTS
+}
+
+
+
+Setting the shuffle:
+
+
+
+
+if (reShuffleCounter ==)
+
+
+
+// Deal Out 1 Card At The Top
+
+    // Deal Out Three Cards At The Top...
+    public void SortDeckIntoSingles()
+    {
+        singles = deck.Count;
+        //tripsRemainder = deck.Count % 3;
+        deckTrips.Clear();
+
+    int modifier = 0;
+    for (int i = 0; i < trips; i++)
+    {
+        List<string> myTrips = new List<string>();
+        for (int j = 0; j < 3; j++)
+        {
+            myTrips.Add(deck[j + modifier]);
+        }
+        deckTrips.Add(myTrips);
+        modifier = modifier + 3;
+    }
+    // IF DECK.COUNT IS NOT DIVISIBLE BY 3 aka deck.Count % 3 != 0
+    if (tripsRemainder != 0)
+    {
+        List<string> myRemainders = new List<string>();
+        modifier = 0;
+        for (int k = 0; k < tripsRemainder; k++)
+        {
+            myRemainders.Add(deck[deck.Count - tripsRemainder + modifier]);
+            modifier++;
+        }
+        deckTrips.Add(myRemainders);
+        trips++;
+    }
+    deckLocation = 0;
+
+    }
+
+
+
+
+for (int i = 0; i < singles; i++)
+{
+    List<string>mySingles = new List<string>();
+    mySingles.Add(deck[i]);
+    deckSingles.Add(mySingles);
+
+    deckLocation = 0;
+}
+
+
+Shuffle.
+Deal Bottom Cards
+
+on click, deal top card...
+
+
+
+
+
+if (deckLocation < singles)
+{
+    // Draw A Card
+    singleOnDisplay.Clear();
+    float xOffset = 2.5f;
+    float yOffset = -0.2f;
+
+    foreach (string card in deckSingles[deckLocation])
+    {
+        GameObject newTopCard = Instantiate(cardPrefab, new Vector3(DeckTop.transform.position.x +xOffset, DeckTop.transform.position.y, DeckTop.transform.position.z + zOffset), Quaternion.identity, DeckTop.transform);
+        //xOffset = xOffset + 0.5f;
+        //zOffset = zOffset - 0.2f;
+        newTopCard.name = card;
+        singlesOnDisplay.Add(card);
+        newTopCard.GetComponent<Selectable>().faceUp = true;
+        newTopCard.GetComponent<Selectable>().inDeckPile = true; //Setting this card as inside the deck pile array
+
+    }
+    deckLocation++;
+}
+else
+{
+    RestackTopDeck();
+}
+
+
+when solitare.deck == 0
+
+
+DRAG AND STACK
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+NO MOVES CHECK
+- iterate thru discards before reshuffle,
+    check if any can be stacked on bottoms or tops
+    if NOT
+        check if any bottoms can be stacked up top
+        if NOT
+            check if any bottoms(before a facedown card) can be stacked on bottoms
+            if NOT
+                Game is most likely OVER. Ask to reset?
+
+public void CheckForMoves()
+{
+    // iterate thru cards after reshuffle
+    for (var i = 0; i < deck.Count(); i++)
+    {
+        // check if any of these cards can be stacked anywhere
+    }
+}
+
+
+Selectable s1 = slot1.GetComponent<Selectable>();
+    Setting this to every card left in deck
+s2
+    setting to each place u wanna check
+
+    iterate thru each bottom[x] and ask IF face up = true...
+
+
+
+    Selectable s2 = selected.GetComponent<Selectable>();
+    if (s2.name == solitare.tripsOnDisplay.Last()) // if it is the last trip
+
+if (bottomcard == solitare.bottoms[i].Last())
+
+so stackable(CARD) has to be every LAST bottom[x], and every last TOP[x] or check against the tops value+suit.
+    
+
+and then to go deeper check maybe, 
+we can check if any cards in bottom that are in front of a facedown card,
+    can be stacked to any last bottoms.
+
+find last top
+
+
+solitare.topPos[x].Last()
+
+solitare.topPos[i].GetComponent<Selectable>().value
+solitare.topPos[i].GetComponent<Selectable>().suit
+if ((solitare.topPos[i].GetComponent<Selectable>().suit == slot1.GetComponent<Selectable>().suit) && (solitare.topPos[i].GetComponent<Selectable>().value == slot1.GetComponent<Selectable>().value -1))
+    for (int i = 0; i < solitare.topPos.Length; i++)
+Selectable stack = solitare.topPos[i].GetComponent<Selectable>();
+string lastCardname = stack.suit + stack.value.ToString();
+
+to get last tops..
+
+for (int i = 0; i < solitare.topPos.Length; i++)
+{
+    Selectable stack = solitare.topPos[i].GetComponent<Selectable>();
+    Stackable(stack)
+    
+    
+    
+    string lastCardname = stack.suit + stack.value.ToString();
+
+}
+
+
+
+wont the last card of each col have no children?
+
+iterate thru bottom[x]..
+    convert to gameObject
+    if gameObject has no children, then its the last... eh
+
+
+
+// find face up card before a facedown one
+
+for (int i = 0; i < solitare.bottoms[0]; i++)
+{
+    GameObject bot = GameObject.Find(solitare.bottoms[0][i]);
+    if (bot.GetComponent<Selectable>().faceup)
+    {
+        return i;
+        break;
+    }
+}
